@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Приветствие</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'style.css' %}">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Введите ваше имя</h1>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form.name }}
+
+                <button type="submit">Submit</button>
+            </form>
+
+            {% if message %}
+                <h2>{{ message }}</h2>
+            {% endif %}
+        </div>
+    </body>
+</html>
